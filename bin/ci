@@ -95,6 +95,7 @@ on_github() {
 prepare_system() {
   on_linux 'echo '"'"'{"ipv6":true, "fixed-cidr-v6":"2001:db8:1::/64"}'"'"' | sudo tee /etc/docker/daemon.json'
   on_linux sudo service docker restart
+  on_nix_shell "nix-shell -p nix-info --run 'nix-info -m'"
 }
 
 build() {
