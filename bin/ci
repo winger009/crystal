@@ -100,7 +100,7 @@ prepare_system() {
 
 build() {
   with_build_env 'bin/crystal scripts/print_regex_config.cr'
-  with_build_env 'CRYSTAL_OPTS="--link-flags=-Wl,-ld_classic" make std_spec clean threads=1 junit_output=.junit/std_spec.xml'
+  with_build_env 'CRYSTAL_OPTS="--link-flags=-Wl" make std_spec clean threads=1 junit_output=.junit/std_spec.xml'
 
   case $ARCH in
     i386)
@@ -125,7 +125,7 @@ build() {
       ;;
   esac
 
-  with_build_env 'CRYSTAL_OPTS="--link-flags=-Wl,-ld_classic" make samples'
+  with_build_env 'CRYSTAL_OPTS="--link-flags=-Wl" make samples'
   # TODO: Is this garbage?
   # with_build_env 'CRYSTAL_OPTS=--debug make samples'
 }
