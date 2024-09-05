@@ -13,10 +13,11 @@ jobs:
     steps:
       - name: Download Crystal source
         uses: actions/checkout@v4
+      - run: chown -R 1000:1000 .
       - name: Build Crystal
         uses: docker://jhass/crystal:1.0.0-alpine-build
         with:
-          args: sleep 2h
+          args: make crystal
       - name: Upload Crystal executable
         uses: actions/upload-artifact@v4
         with:
