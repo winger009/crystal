@@ -8,7 +8,7 @@ concurrency:
 
 jobs:
   aarch64-musl-build:
-    runs-on: [linux, ARM64]
+    runs-on: [runs-on, family=c7g+c6g, ram=8+32, "run-id=${{ github.run_id }}"]
     if: github.repository == 'crystal-lang/crystal'
     steps:
       - name: Download Crystal source
