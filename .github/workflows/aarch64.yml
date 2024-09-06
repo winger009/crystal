@@ -13,9 +13,8 @@ jobs:
     steps:
       - name: Download Crystal source
         uses: actions/checkout@v4
-      - run: chown -R 1000:1000 .
       - name: Build Crystal
-        uses: docker://jhass/crystal:1.0.0-alpine-build
+        uses: docker://crystallang/crystal:1.0.0-alpine-arm-build
         with:
           args: make crystal
       - name: Upload Crystal executable
@@ -39,7 +38,7 @@ jobs:
       - name: Mark downloaded compiler as executable
         run: chmod +x .build/crystal
       - name: Run stdlib specs
-        uses: docker://jhass/crystal:1.0.0-alpine-build
+        uses: docker://crystallang/crystal:1.0.0-alpine-arm-build
         with:
           args: make std_spec FLAGS=-Duse_pcre
   aarch64-musl-test-compiler:
@@ -56,7 +55,7 @@ jobs:
       - name: Mark downloaded compiler as executable
         run: chmod +x .build/crystal
       - name: Run compiler specs
-        uses: docker://jhass/crystal:1.0.0-alpine-build
+        uses: docker://crystallang/crystal:1.0.0-alpine-arm-build
         with:
           args: make primitives_spec compiler_spec FLAGS=-Dwithout_ffi
   aarch64-gnu-build:
@@ -90,7 +89,7 @@ jobs:
       - name: Mark downloaded compiler as executable
         run: chmod +x .build/crystal
       - name: Run stdlib specs
-        uses: docker://jhass/crystal:1.0.0-build
+        uses: docker://crystallang/crystal:1.0.0-alpine-arm-build
         with:
           args: make std_spec
   aarch64-gnu-test-compiler:
@@ -107,6 +106,6 @@ jobs:
       - name: Mark downloaded compiler as executable
         run: chmod +x .build/crystal
       - name: Run compiler specs
-        uses: docker://jhass/crystal:1.0.0-build
+        uses: docker://crystallang/crystal:1.0.0-alpine-arm-build
         with:
           args: make primitives_spec compiler_spec
