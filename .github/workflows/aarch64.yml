@@ -105,6 +105,8 @@ jobs:
           name: crystal-aarch64-gnu
       - name: Mark downloaded compiler as executable
         run: chmod +x .build/crystal
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - name: Run compiler specs
         uses: docker://crystallang/crystal:1.0.0-arm-build
         with:
