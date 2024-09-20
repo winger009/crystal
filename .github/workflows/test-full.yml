@@ -1,0 +1,15 @@
+name: Test Full
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/test-full.yml
+  schedule:
+  - cron: '0 3 * * *'
+
+permissions: {}
+
+jobs:
+  call-forward_compatibility:
+    uses: ./.github/workflows/forward-compatibility.yml
