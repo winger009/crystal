@@ -373,6 +373,10 @@ module Crystal
       nil
     end
 
+    def lookup_type(name)
+      types?.try(&.[name]?)
+    end
+
     def parents
       nil
     end
@@ -2767,6 +2771,11 @@ module Crystal
 
     def types
       types?.not_nil!
+    end
+
+    def lookup_type(name)
+      process_value
+      @aliased_type.try(&.lookup_type(name))
     end
 
     def remove_alias
