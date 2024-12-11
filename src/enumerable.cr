@@ -2292,7 +2292,7 @@ module Enumerable(T)
     # if the type is a union.
     def self.first
       {% if X.union? %}
-        {{X.union_types.first}}
+        {% raise "Cannot determine type" %}
       {% else %}
         X
       {% end %}
