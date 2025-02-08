@@ -14,5 +14,8 @@ jobs:
   call-forward_compatibility:
     uses: ./.github/workflows/forward-compatibility.yml
 
+  call-llvm:
+    uses: ./.github/workflows/llvm.yml
+
   call-smoke_tests:
     uses: ./.github/workflows/smoke.yml
