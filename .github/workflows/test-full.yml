@@ -13,3 +13,6 @@ permissions: {}
 jobs:
   call-forward_compatibility:
     uses: ./.github/workflows/forward-compatibility.yml
+
+  call-smoke_tests:
+    uses: ./.github/workflows/smoke.yml
