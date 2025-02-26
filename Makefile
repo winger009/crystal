@@ -179,7 +179,7 @@ install: $(O)/$(CRYSTAL_BIN) $(MAN1PAGES) ## Install the compiler at DESTDIR
 	rm -rf "$(DESTDIR)$(DATADIR)/crystal/$(LLVM_EXT_OBJ)" # Don't install llvm_ext.o
 
 	$(INSTALL) -d -m 0755 "$(DESTDIR)$(MANDIR)/man1/"
-	$(INSTALL) -m 644 ${man1_roff} "$(DESTDIR)$(MANDIR)/man1/"
+	$(INSTALL) -m 644 $(MAN1PAGES) "$(DESTDIR)$(MANDIR)/man1/"
 	$(INSTALL) -d -m 0755 "$(DESTDIR)$(DATADIR)/licenses/crystal/"
 	$(INSTALL) -m 644 LICENSE "$(DESTDIR)$(DATADIR)/licenses/crystal/LICENSE"
 
