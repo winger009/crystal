@@ -24,6 +24,7 @@ jobs:
           install: >-
             git
             make
+            mingw-w64-ucrt-x86_64-asciidoctor
             mingw-w64-ucrt-x86_64-pkgconf
             mingw-w64-ucrt-x86_64-llvm
             mingw-w64-ucrt-x86_64-crystal
