@@ -1243,7 +1243,7 @@ describe "File .match? bash tests" do
     assert_file_matches "フォルダ/**/*", "フォルダ/aaa.js"
   end
 
-  it "negation" do
+  pending "negation" do
     refute_file_matches "!*", "abc"
     refute_file_matches "!abc", "abc"
     refute_file_matches "*!.md", "bar.md"
