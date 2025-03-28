@@ -11,7 +11,7 @@ concurrency:
 jobs:
   aarch64-musl-build:
     runs-on: [runs-on, runner=2cpu-linux-arm64, "run-id=${{ github.run_id }}"]
-    if: github.repository == 'crystal-lang/crystal'
+    #if: github.repository == 'crystal-lang/crystal'
     steps:
       - name: Download Crystal source
         uses: actions/checkout@v4
@@ -29,7 +29,7 @@ jobs:
   aarch64-musl-test-stdlib:
     needs: aarch64-musl-build
     runs-on: [runs-on, runner=4cpu-linux-arm64, "family=m7g", ram=16, "run-id=${{ github.run_id }}"]
-    if: github.repository == 'crystal-lang/crystal'
+    #if: github.repository == 'crystal-lang/crystal'
     steps:
       - name: Download Crystal source
         uses: actions/checkout@v4
@@ -46,7 +46,7 @@ jobs:
   aarch64-musl-test-compiler:
     needs: aarch64-musl-build
     runs-on: [runs-on, runner=4cpu-linux-arm64, "family=m7g", ram=16, "run-id=${{ github.run_id }}"]
-    if: github.repository == 'crystal-lang/crystal'
+    #if: github.repository == 'crystal-lang/crystal'
     steps:
       - name: Download Crystal source
         uses: actions/checkout@v4
@@ -62,7 +62,7 @@ jobs:
           args: make primitives_spec compiler_spec FLAGS=-Dwithout_ffi
   aarch64-gnu-build:
     runs-on: [runs-on, runner=2cpu-linux-arm64, "run-id=${{ github.run_id }}"]
-    if: github.repository == 'crystal-lang/crystal'
+    #if: github.repository == 'crystal-lang/crystal'
     steps:
       - name: Download Crystal source
         uses: actions/checkout@v4
@@ -80,7 +80,7 @@ jobs:
   aarch64-gnu-test-stdlib:
     needs: aarch64-gnu-build
     runs-on: [runs-on, runner=4cpu-linux-arm64, "family=m7g", ram=16, "run-id=${{ github.run_id }}"]
-    if: github.repository == 'crystal-lang/crystal'
+    #if: github.repository == 'crystal-lang/crystal'
     steps:
       - name: Download Crystal source
         uses: actions/checkout@v4
@@ -97,7 +97,7 @@ jobs:
   aarch64-gnu-test-compiler:
     needs: aarch64-gnu-build
     runs-on: [runs-on, runner=4cpu-linux-arm64, "family=m7g", ram=16, "run-id=${{ github.run_id }}"]
-    if: github.repository == 'crystal-lang/crystal'
+    #if: github.repository == 'crystal-lang/crystal'
     steps:
       - name: Download Crystal source
         uses: actions/checkout@v4
