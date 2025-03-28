@@ -18,7 +18,7 @@ jobs:
       - name: Build Crystal
         uses: docker://crystallang/crystal:1.13.2-alpine-84codes-build
         with:
-          args: make crystal
+          args: make crystal release=1 interpreter=1 static=1 debug=1  progress=1 
       - name: Upload Crystal executable
         uses: actions/upload-artifact@v4
         with:
@@ -69,7 +69,7 @@ jobs:
       - name: Build Crystal
         uses: docker://crystallang/crystal:1.13.2-ubuntu-84codes-build
         with:
-          args: make crystal
+          args: make crystal release=1 interpreter=1 static=1 debug=1  progress=1 
       - name: Upload Crystal executable
         uses: actions/upload-artifact@v4
         with:
